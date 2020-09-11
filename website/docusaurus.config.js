@@ -43,12 +43,12 @@ const siteConfig = {
         src: "img/logo.svg"
       },
       links: [
-        { to: "docs/getting-started", label: "文档", position: "right" },
-        {
-          href: "https://reactjs.org/community/support.html",
-          label: "帮助",
-          position: "right"
-        },
+        { to: "docs/documentation-intro", label: "文档", position: "right" },
+        // {
+        //   href: "https://reactjs.org/community/support.html",
+        //   label: "帮助",
+        //   position: "right"
+        // },
         {
           href: "https://github.com/taoveweb/jsSchool",
           label: "GitHub",

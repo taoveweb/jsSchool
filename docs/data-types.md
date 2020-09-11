@@ -3,20 +3,43 @@ id: data-types
 title: 数据类型
 ---
 
-难点是运算过程中数据类型之间的转换
+难点是运算过程中数据类型之间的转换，因为js是弱类型语言
 
 ## 基本类型和引用类型
 ### 基本类型7类
  Number 、String 、Boolean 、Null 、Undefined、 Symbol、BigInt
 ### 引用类型2类
-#### object
+#### Object
    普通对象 Object.create({})、数组 Array、正则 RegExp 、日期 Date 、Math、 其它
+   + 对象的下标是字符串如果不是会进类型转换，调用 String() 进行转换
 
-   ```js
 
-   ```
+```js
+   //
+   {[[]]:'aaa'}
+   {[{}]:'aaa'}
+   {[222]:'aaa'}
+   {[{a:'b'}]:'aaa'}
 
-#### function 
+   //key调用 String() 进行转化
+
+ ```
+
+  + 对象存储的是引用
+
+
+```js
+   //存储的是引用
+  
+   let obj={};
+   let objb=Object.create({})
+   obj===objb
+
+ ```
+
+
+#### Function 
+function 应该算是个大类要单独例出来
 
 ## 数据类型检测
 
