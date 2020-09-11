@@ -5,13 +5,18 @@ title: 数据类型
 
 难点是运算过程中数据类型之间的转换
 
-## 基本数据类型
+## 基本类型和引用类型
+### 基本类型7类
  Number 、String 、Boolean 、Null 、Undefined、 Symbol、BigInt
-## 引用类型 
-### object
+### 引用类型2类
+#### object
    普通对象 Object.create({})、数组 Array、正则 RegExp 、日期 Date 、Math、 其它
 
- ### function 
+   ```js
+
+   ```
+
+#### function 
 
 ## 数据类型检测
 
@@ -58,7 +63,7 @@ title: 数据类型
 ```
 
 ## Number类型需要注意的地方
-Number 中特别的两个数据  NaN 和   Infinity 都为数字类型,强转Number(),弱转化parseInt()/parseFload(),丢失精度目前调用库bignumber
+Number 中特别的两个数据  NaN 和 Infinity 都为数字类型，数据转化Number()为强转化,parseInt()/parseFload()为弱转化，js环镜对数字的长度及精度都有要求如出现问题可考虑使用 bignumber库进行处理
 ## NaN
  + 和谁都不相等包括自己
  + 和谁相加值都为NaN
@@ -113,15 +118,19 @@ Number 中特别的两个数据  NaN 和   Infinity 都为数字类型,强转Num
 ## +/- 运算符 
 + 字符串 + 其它的/其它的+字符串   都为 字符串 + String(其它)
 + 数字 + 隐式转化   数字 + 隐式转化后的值(null:0,true:1,false:0,undefined:不转化
-* /+ + / - -  为强转化Number()
+* /+ + / - -  为强转化Number()、String()
 + 从左开始运算
 
   ```js
 
   let result=10+null+undefined+[]+"jlt"+null+{};
   + + '1'
-  + + 'adfasf1'
+  + + 'string1'
+  + + '1string'
   + + null
-  + + undefinded
-
+  + + undefined
+  + + true
+  + + false
+  + + ''
+  + + NaN
   ```
