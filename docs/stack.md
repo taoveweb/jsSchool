@@ -38,154 +38,52 @@ parseInt parseFloat :function
 
 在当前上下文中，用来存放创建变量和值的地方 每一个上下文中都有一个自己的变量对象，函数私有上下文中叫做 AO（Activation Object）活动对象，但是也是变量对象.
 
-## Quick Start
+- 基本类型
 
-```sh
-npx create-react-app my-app
-cd my-app
-npm start
+```js
+// 创建一个值 12  --- 基本数据类型的值都是直接接存储到内存中，引用数据类型的值是先开辟一个堆内存，把东西存储进去最后把地址放到栈中供变量关联使用的
+// 创建变量 a
+// 让变量和值关联在一起:所有的等号(指针)赋值都是关量指向 a变量通过等号将指针指向值12
+let a = 12;
+// 创建变量b 将指针指向a
+let b = a;
+// b再指向值13
+b = 13;
 ```
 
-> If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, we recommend you uninstall the package using `npm uninstall -g create-react-app` or `yarn global remove create-react-app` to ensure that `npx` always uses the latest version.
+- 引用类型
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
+```js
+// 堆内存 AAAFFF000
+// 1.创建一个堆内存
+// 2.把键值对{ n: 23 }存到堆内存中
+// 3.把堆内存存到栈中，供变量a使用.
+let a = { n: 23 };
+// b 和 a 用的是同一个引用值
+let b = a;
+// b把堆内存中的n进行修改
+b['n'] = 13;
 
-Then open [http://localhost:3000/](http://localhost:3000/) to see your app.
-
-When you’re ready to deploy to production, create a minified bundle with `npm run build`.
-
-<p align='center'>
-<img src='https://cdn.jsdelivr.net/gh/facebook/create-react-app@27b42ac7efa018f2541153ab30d63180f5fa39e0/screencast.svg' width='600' alt='npm start' />
-</p>
-
-### Get Started Immediately
-
-You **don’t** need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
-
-Create a project, and you’re good to go.
-
-## Creating an App
-
-**You’ll need to have Node >= 10 on your local development machine** (but it’s not required on the server). You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to switch Node versions between different projects.
-
-To create a new app, you may choose one of the following methods:
-
-### npx
-
-```sh
-npx create-react-app my-app
+console.log(a.n);
 ```
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
+```js
+/*
+ 1.创建值  
+   开辟堆 将健值对存入堆 
+   存键值对  name: '晶链通',
+   存键值对  fn: (function (x) {
+                return x + 10;
+          })(obj.name),
+   把obj.name传给进去，这时候还没有obj的值还未关联obj未定义，实则传的undefined.name，而undefined 没有 name属性
 
-### npm
+ */
+let obj = {
+  name: '晶链通',
+  fn: (function (x) {
+    return x + 10;
+  })(obj.name),
+};
 
-```sh
-npm init react-app my-app
+console.log(obj.fn);
 ```
-
-_`npm init <initializer>` is available in npm 6+_
-
-### Yarn
-
-```sh
-yarn create react-app my-app
-```
-
-_`yarn create` is available in Yarn 0.25+_
-
-### Selecting a template
-
-You can now optionally start a new app from a template by appending `--template [template-name]` to the creation command.
-
-If you don't select a template, we'll create your project with our base template.
-
-Templates are always named in the format `cra-template-[template-name]`, however you only need to provide the `[template-name]` to the creation command.
-
-```sh
-npx create-react-app my-app --template [template-name]
-```
-
-> You can find a list of available templates by searching for ["cra-template-\*"](https://www.npmjs.com/search?q=cra-template-*) on npm.
-
-Our [Custom Templates](custom-templates.md) documentation describes how you can build your own template.
-
-#### Creating a TypeScript app
-
-You can start a new TypeScript app using templates. To use our provided TypeScript template, append `--template typescript` to the creation command.
-
-```sh
-npx create-react-app my-app --template typescript
-```
-
-If you already have a project and would like to add TypeScript, see our [Adding TypeScript](adding-typescript.md) documentation.
-
-### Selecting a package manager
-
-When you create a new app, the CLI will use [Yarn](https://yarnpkg.com/) to install dependencies (when available). If you have Yarn installed, but would prefer to use npm, you can append `--use-npm` to the creation command. For example:
-
-```sh
-npx create-react-app my-app --use-npm
-```
-
-## Output
-
-Running any of these commands will create a directory called `my-app` inside the current folder. Inside that directory, it will generate the initial project structure and install the transitive dependencies:
-
-```
-my-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    ├── serviceWorker.js
-    └── setupTests.js
-```
-
-No configuration or complicated folder structures, only the files you need to build your app. Once the installation is done, you can open your project folder:
-
-```sh
-cd my-app
-```
-
-## Scripts
-
-Inside the newly created project, you can run some built-in commands:
-
-### `npm start` or `yarn start`
-
-Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
-
-<p align='center'>
-<img src='https://cdn.jsdelivr.net/gh/marionebl/create-react-app@9f6282671c54f0874afd37a72f6689727b562498/screencast-error.svg' width='600' alt='Build errors' />
-</p>
-
-### `npm test` or `yarn test`
-
-Runs the test watcher in an interactive mode. By default, runs tests related to files changed since the last commit.
-
-[Read more about testing](running-tests.md).
-
-### `npm run build` or `yarn build`
-
-Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-
-Your app is ready to be deployed.
