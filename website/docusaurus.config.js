@@ -6,58 +6,58 @@
  */
 
 const siteConfig = {
-  title: "前端-学习笔记",
-  tagline: "笔记",
-  url: "https://create-react-app.dev",
-  baseUrl: "/",
-  projectName: "前端-学习笔记",
-  organizationName: "jlt",
-  favicon: "img/favicon/favicon.ico",
+  title: '前端-学习笔记',
+  tagline: '笔记',
+  url: 'https://create-react-app.dev',
+  baseUrl: '/',
+  projectName: '前端-学习笔记',
+  organizationName: 'jlt',
+  favicon: 'img/favicon/favicon.ico',
   presets: [
     [
-      "@docusaurus/preset-classic",
+      '@docusaurus/preset-classic',
       {
         docs: {
-          path: "../docs",
-          sidebarPath: require.resolve("./sidebars.json"),
-          editUrl: "https://github.com/taoveweb/jsSchool",
+          path: '../docs',
+          sidebarPath: require.resolve('./sidebars.json'),
+          editUrl: 'https://github.com/taoveweb/jsSchool',
           showLastUpdateAuthor: true,
-          showLastUpdateTime: true
+          showLastUpdateTime: true,
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css")
-        }
-      }
-    ]
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
   ],
   themeConfig: {
-    image: "img/logo-og.png",
+    image: 'img/logo-og.png',
     algolia: {
-      apiKey: "3be60f4f8ffc24c75da84857d6323791",
-      indexName: "create-react-app"
+      apiKey: '3be60f4f8ffc24c75da84857d6323791',
+      indexName: 'create-react-app',
     },
     navbar: {
-      title: "晶链通-学习笔记",
+      title: '晶链通-学习笔记',
       logo: {
-        alt: "Create React App Logo",
-        src: "img/logo.svg"
+        alt: 'Create React App Logo',
+        src: 'img/logo.svg',
       },
-      links: [
-        { to: "docs/documentation-intro", label: "文档", position: "right" },
+      items: [
+        { to: 'docs/documentation-intro', label: '文档', position: 'right' },
         // {
         //   href: "https://reactjs.org/community/support.html",
         //   label: "帮助",
         //   position: "right"
         // },
         {
-          href: "https://github.com/taoveweb/jsSchool",
-          label: "GitHub",
-          position: "right"
-        }
-      ]
+          href: 'https://github.com/taoveweb/jsSchool',
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
     },
     footer: {
-      style: "dark",
+      style: 'dark',
       links: [
         // {
         //   title: "文档",
@@ -104,14 +104,14 @@ const siteConfig = {
         //     }
         //   ]
         // }
-      ]
+      ],
       // logo: {
       //   alt: "Facebook Open Source Logo",
       //   src: "img/oss_logo.png"
       // },
       // copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`
-    }
-  }
+    },
+  },
 };
 
 module.exports = siteConfig;
