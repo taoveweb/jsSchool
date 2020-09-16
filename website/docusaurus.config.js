@@ -8,8 +8,8 @@
 const siteConfig = {
   title: "前端-学习笔记",
   tagline: "笔记",
-  url: "http://shuawei.com/doc",
-  baseUrl: "/",
+  url: "http://oldku.com",
+  baseUrl: "/doc/",
   projectName: "前端-学习笔记",
   organizationName: "jlt",
   favicon: "img/favicon/favicon.ico",
