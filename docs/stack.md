@@ -87,3 +87,5 @@ let obj = {
 
 console.log(obj.fn);
 ```
+
+
